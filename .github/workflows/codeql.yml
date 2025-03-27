@@ -54,7 +54,9 @@ jobs:
         else
           echo "CodeQL scan did not generate a results file!" > results.txt
         fi
-
+        
+    - name: Debug CodeQL Output
+      run: ls -lah
 
     - name: Send CodeQL Report via Email
       uses: dawidd6/action-send-mail@v3.12.0
