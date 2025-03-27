@@ -46,6 +46,11 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
+        
+    - name: Extract CodeQL Results
+      run: |
+        find . -name "*.sarif" -exec echo "Found SARIF file: {}" \;
+        jq -r '.runs[].results[].message.text' codeql-results.sarif > results.txt || echo "No issues found" > results.txt
 
     - name: Extract CodeQL Results
       run: |
