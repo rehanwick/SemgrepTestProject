@@ -8,7 +8,7 @@ namespace SemgrepTestProject.Services
 
         public bool IsUserExists(string username)
         {
-            // 🚨 SQL Injection Vulnerability
+             🚨 SQL Injection Vulnerability
             string query = "SELECT COUNT(*) FROM Users WHERE Username = '" + username + "'";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
